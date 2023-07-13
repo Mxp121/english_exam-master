@@ -4,6 +4,7 @@ import 'main.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: SplashScreen(),
   ));
 }
@@ -53,9 +54,9 @@ class _SplashScreenState extends State<SplashScreen>
               ScaleTransition(
                 scale: _animation,
                 child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 200,
-                  height: 200,
+                  'asstes/Capture.PNG',
+                  width: 300,
+                  height: 300,
                 ),
               ),
               SizedBox(height: 24),

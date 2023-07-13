@@ -7,6 +7,7 @@ class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Quiz App',
       home: QuizPage(),
     );
@@ -25,73 +26,41 @@ class _QuizPageState extends State<QuizPage> {
   late Timer _timer;
 
   static const List<String> questions = [
-    'What is the plural of "goose"?',
-    'What is the past tense of "eat"?',
-    'What is the opposite of "hot"?',
-    'What is the capital of Canada?',
-    'What is the largest ocean in the world?',
-    'Which planet is known as the "Red Planet"?',
-    'What is the highest mountain in the world?',
-    'What is the smallest country in the world?',
-    'Who wrote "The Great Gatsby"?',
-    'What is the chemical symbol for gold?',
-    'Who is the founder of Amazon?',
-    'What is the currency of Japan?',
-    'What is the largest country in the world?',
-    'Who painted the Mona Lisa?',
-    'What is the smallest planet in our solar system?',
-    'What is the most abundant gas in Earth\'s atmosphere?',
-    'Which two elements make up water?',
-    'What is the boiling point of water in degrees Celsius?',
-    'What is the formula for the area of a circle?',
-    'Who is the current Prime Minister of the United Kingdom?',
-    'What is the tallest mammal in the world?',
-    'What is the largest animal in the world?',
-    'What is the smallest mammal in the world?',
-    'What is the fastest land animal in the world?',
-    'What is the largest bird in the world?',
-    'What is the longest river in the world?',
-    'Who discovered penicillin?',
-    'What is the name of the biggest desert in the world?',
-    'What is the name of the smallest ocean in the world?',
-    'What is the name of the imaginary line that divides the Earth into the Northern and Southern Hemispheres?'
+    'What is the plural of "child"?',
+    'What is the past tense of "run"?',
+    'What is the superlative form of "good"?',
+    'What is a synonym for "happy"?',
+    'What is a homophone for "blue"?',
+    'What is a preposition?',
+    'What is an antonym for "big"?',
+    'What is a synonym for "beautiful"?',
+    'What is a simile?',
+    'What is a verb?',
+    'What is a collective noun for a group of birds?',
+    'Which word is a pronoun: "he", "jump", or "book"?',
+    'What is a gerund?',
+    'What is a contraction for "I am"?'
   ];
 
   static const List<List<String>> options = [
-    ['Geese', 'Geeses', 'Gooses', 'Gooseys'],
-    ['Ate', 'Eaten', 'Eated', 'Eat'],
-    ['Cold', 'Warm', 'Mild', 'Cool'],
-    ['Toronto', 'Ottawa', 'Montreal', 'Vancouver'],
-    ['Atlantic', 'Indian', 'Pacific', 'Arctic'],
-    ['Mars', 'Venus', 'Mercury', 'Jupiter'],
-    ['Mount Everest', 'K2', 'Kangchenjunga', 'Lhotse'],
-    ['Vatican City', 'Monaco', 'Nauru', 'Tuvalu'],
-    ['F. Scott Fitzgerald', 'Ernest Hemingway', 'John Steinbeck', 'William Faulkner'],
-    ['Au', 'Ag', 'Cu', 'Fe'],
-    ['Jeff Bezos', 'Bill Gates', 'Mark Zuckerberg', 'Steve Jobs'],
-    ['Yen', 'Dollar', 'Euro', 'Pound'],
-    ['Russia', 'China', 'USA', 'Canada'],
-    ['Leonardo da Vinci', 'Michelangelo', 'Raphael', 'Vincent van Gogh'],
-    ['Mercury', 'Mars', 'Venus', 'Pluto'],
-    ['Nitrogen', 'Oxygen', 'Carbon dioxide', 'Argon'],
-    ['Hydrogen and Oxygen', 'Carbon and Oxygen', 'Nitrogen and Oxygen', 'Hydrogen and Nitrogen'],
-    ['100', '212', '0', '-273'],
-    ['πr²', '2πr', '2πr²', 'πr'],
-    ['Boris Johnson', 'Theresa May', 'David Cameron', 'Tony Blair'],
-    ['Giraffe', 'Elephant', 'Whale', 'Hippopotamus'],
-    ['Blue whale', 'African elephant', 'Giraffe', 'Saltwater crocodile'],
-    ['Bumblebee bat', 'Mouse lemur', 'Pygmy marmoset', 'Etruscan shrew'],
-    ['Cheetah', 'Lion', 'Leopard', 'Tiger'],
-    ['Ostrich', 'Emu', 'Condor', 'Albatross'],
-    ['Nile', 'Amazon', 'Yangtze', 'Mississippi'],
-    ['Alexander Fleming', 'Marie Curie', 'Albert Einstein', 'IsaacNewton'],
-    ['Sahara', 'Arabian', 'Gobi', 'Kalahari'],
-    ['Southern', 'Arctic', 'Indian', 'Antarctic'],
-    ['Equator', 'Prime Meridian', 'Tropic of Cancer', 'Tropic of Capricorn']
+    ['Childs', 'Children', 'Childes', 'Childies'],
+    ['Ran', 'Runned', 'Runned', 'Ran'],
+    ['Better', 'Best', 'Goodest', 'Gooder'],
+    ['Sad', 'Glad', 'Mad', 'Bad'],
+    ['Blew', 'Blewes', 'Blewed', 'Blue'],
+    ['A type of verb', 'A type of noun', 'A type of adjective', 'A type of pronoun'],
+    ['Small', 'Little', 'Tiny', 'Narrow'],
+    ['Pretty', 'Ugly', 'Plain', 'Attractive'],
+    ['A figure of speech', 'A type of noun', 'A type of verb', 'A type of adjective'],
+    ['A type of noun', 'A type of verb', 'A type of adjective', 'A type of pronoun'],
+    ['Flock', 'Herd', 'School', 'Pack'],
+    ['He', 'Jump', 'Book'],
+    ['A type of verb', 'A type of noun', 'A type of adjective', 'A type of pronoun'],
+    ['I\'m', 'I\'ve', 'I\'d', 'I\'am']
   ];
 
   static const List<int> answers = [
-    0, 0, 2, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 2, 0, 0, 1, 1, 2, 0, 2, 0, 0, 0, 1, 3
+    1, 0, 1, 1, 2, 2, 1, 0, 3, 1, 0, 0, 0, 0
   ];
 
   @override
@@ -156,6 +125,22 @@ class _QuizPageState extends State<QuizPage> {
     }
   }
 
+  void _goToNextQuestion() {
+    if (_currentIndex < questions.length - 1) {
+      setState(() {
+        _currentIndex++;
+      });
+    }
+  }
+
+  void _goToPreviousQuestion() {
+    if (_currentIndex > 0) {
+      setState(() {
+        _currentIndex--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -195,7 +180,6 @@ class _QuizPageState extends State<QuizPage> {
                       .entries
                       .map(
                         (entry) => ElevatedButton(
-                      
                       child: Text(
                         entry.value,
                         style: TextStyle(fontSize: 18.0),
@@ -205,7 +189,32 @@ class _QuizPageState extends State<QuizPage> {
                       },
                     ),
                   )
-                      .toList()
+                      .toList(),
+                  SizedBox(height: 16.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      if (_currentIndex > 0)
+                        ElevatedButton(
+                          child: Text('Previous'),
+                          onPressed: _goToPreviousQuestion,
+                        ),
+                      Text(
+                        'Question ${_currentIndex + 1} of ${questions.length}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                      if (_currentIndex < questions.length - 1)
+                        ElevatedButton(
+                          child: Text('Next'),
+                          onPressed: _goToNextQuestion,
+                        ),
+                    ],
+                  ),
+                  SizedBox(height: 16.0),
+                  Text(
+                    'Score: $_score / ${_currentIndex + 1}',
+                    style: TextStyle(fontSize: 18.0),
+                  )
                 ],
               ),
             ),

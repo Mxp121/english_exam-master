@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_exam/Q.dart';
+import 'Setting.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,35 +23,35 @@ class QuizLevelsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> quizLevels = [
     {
       'title': 'Beginner',
-      'subtitle': 'Level 1 - 10 Questions',
+      'subtitle': 'Level 1-30 Questions',
       'color': Colors.blue,
       'progress': 0.5,
       'levels': [
-        {'title': 'Level 1', 'subtitle': '10 Questions'},
-        {'title': 'Level 2', 'subtitle': '15 Questions'},
-        {'title': 'Level 3', 'subtitle': '20 Questions'},
+        {'title': 'Level 1', 'subtitle': '1min'},
+        {'title': 'Level 2', 'subtitle': '1min'},
+        {'title': 'Level 3', 'subtitle': '1min'},
       ],
     },
     {
       'title': 'Intermediate',
-      'subtitle': 'Level 2 - 20 Questions',
+      'subtitle': 'Level 2-30 Questions',
       'color': Colors.green,
       'progress': 0.2,
       'levels': [
-        {'title': 'Level 1', 'subtitle': '20 Questions'},
-        {'title': 'Level 2', 'subtitle': '25 Questions'},
-        {'title': 'Level 3', 'subtitle': '30 Questions'},
+        {'title': 'Level 1', 'subtitle': '2min'},
+        {'title': 'Level 2', 'subtitle': '2min'},
+        {'title': 'Level 3', 'subtitle': '2min'},
       ],
     },
     {
       'title': 'Advanced',
-      'subtitle': 'Level 3 - 30 Questions',
+      'subtitle': 'Level 3-30 Questions',
       'color': Colors.red,
       'progress': 0.8,
       'levels': [
-        {'title': 'Level 1', 'subtitle': '30 Questions'},
-        {'title': 'Level 2', 'subtitle': '35 Questions'},
-        {'title': 'Level 3', 'subtitle': '40 Questions'},
+        {'title': 'Level 1', 'subtitle': '3min'},
+        {'title': 'Level 2', 'subtitle': '3min'},
+        {'title': 'Level 3', 'subtitle': '3min'},
       ],
     },
   ];
@@ -60,6 +61,34 @@ class QuizLevelsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('English Quiz'),
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (BuildContext context) => [
+              PopupMenuItem(
+                child: Text('Settings'),
+                value: 'settings',
+              ),
+              PopupMenuItem(
+                child: Text('About'),
+                value: 'about',
+              ),
+              PopupMenuItem(
+                child: Text('Exit'),
+                value: 'exit',
+              ),
+            ],
+            onSelected: (String value) {
+              if (value == 'settings') {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>SettingsPage()));
+              } else if (value == 'about') {
+                // TODO: Implement about functionality
+              } else if (value == 'exit') {
+                // TODO: Implement exit functionality
+              }
+            },
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: quizLevels.length,
