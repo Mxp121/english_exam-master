@@ -79,8 +79,6 @@ class QuizLevelsScreen extends StatelessWidget {
             ],
             onSelected: (String value) {
               if (value == 'settings') {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) =>SettingsPage()));
               } else if (value == 'about') {
                 // TODO: Implement about functionality
               } else if (value == 'exit') {
